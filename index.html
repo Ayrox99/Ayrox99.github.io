@@ -21,22 +21,43 @@
       animation: blinker 1s linear infinite; /* Animation de clignotement */
     }
 
+    /* Style du deuxième bouton */
+    .super-clignotant {
+      font-size: 20px;
+      padding: 15px 30px;
+      border: 2px solid #ff0000; /* Rouge encore plus vif */
+      border-radius: 10px;
+      background-color: #ff6666; /* Rouge plus vif */
+      cursor: pointer;
+      animation: blinker 1s linear infinite; /* Animation de clignotement */
+    }
+
     /* Animation de clignotement */
     @keyframes blinker {
       50% {
-        background-color: #ff9999; /* Changer la couleur pendant la moitié de l'animation */
+        background-color: #ff3333; /* Changer la couleur pendant la moitié de l'animation */
       }
     }
   </style>
 </head>
 <body>
   <p>Attention! Ne pas cliquer sur le bouton ci-dessous!!</p>
-  <button class="clignotant" onclick="maBlague()">NE PAS CLIQUER !!</button>
+  <button class="clignotant" onclick="afficherTexte()">NE PAS CLIQUER !!</button>
 
-  <!-- Script pour une petite blague -->
+  <p id="texteCaché" style="display: none; margin-top: 20px;"></p>
+  <button class="super-clignotant" onclick="afficherFormulaire()" id="boutonFormulaire" style="display: none; margin-top: 20px;">LA IL NE FAUT VRAIMENT PAS CLIQUER</button>
+
+  <!-- Script pour les actions des boutons -->
   <script>
-    function maBlague() {
-      alert("Haha! Tu as cliqué sur le bouton interdit ! 😄");
+    function afficherTexte() {
+      document.getElementById("texteCaché").innerHTML = "ON T'A DIT DE NE PAS CLIQUER !!!";
+      document.getElementById("texteCaché").style.display = "block";
+      document.getElementById("boutonFormulaire").style.display = "block";
+    }
+
+    function afficherFormulaire() {
+      alert("Il faut payer maintenant !");
+      // Vous pouvez ajouter ici le code pour afficher un formulaire réel
     }
   </script>
 </body>
